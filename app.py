@@ -15,7 +15,7 @@ from pathlib import Path
 
 
 MAX_BODY = 10 * 1024 * 1024
-DATA_DIR = Path(os.environ.get("DATA_DIR", "./captures"))
+DATA_DIR = Path(os.environ.get("DATA_DIR", "./data"))
 SAMPLE_RATE = 8_000
 SAMPLES_PER_BYTE = 16
 jobs = queue.Queue()

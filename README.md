@@ -6,15 +6,15 @@ An absorber that captures the relic radiation from the cosmic web. This HTTP sin
 
 For local development:
 
-```sh
-DATA_DIR=./captures uv run python app.py
+```shell
+uv run python app.py
 ```
 
 Or with Docker:
 
-```sh
+```shell
 docker build -t relic-radiation .
-docker run --rm -p 8080:8080 -v "$PWD/captures:/data" relic-radiation
+docker run --rm -p 8080:8080 -v "$PWD/data:/data" --env DATA_DIR=/data relic-radiation
 curl -X SCRAPE -H 'Authorization: Bearer example' --data-binary 'hello' http://localhost:8080/a/path
 ```
 
