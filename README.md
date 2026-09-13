@@ -32,8 +32,9 @@ Each accepted request creates `/data/<id>/metadata.json`, `body.bin`, and, short
 The WAV deterministically maps every byte of a canonical request (request line, headers, and exact body) to a short tone. It is not speech. HTTP parsing removes wire details such as chunk framing, and TLS is terminated before the service sees a request.
 
 ## Security
+*Use at your own risk.*
 
-This service intentionally stores authorization headers, cookies, and bodies without redaction. Do not expose `/data`, do not put secrets in logs, mount storage with appropriate host permissions, and restrict host access. Public ingestion permits deliberate disk exhaustion; apply a reverse-proxy request-rate limit and monitor disk usage before exposing it to the internet.
+This service intentionally stores all authorization headers, cookies, and bodies without inspection. Consider any request and payload as potentially malicious. Treat any stored artifact of this service as untrusted.
 
 ## Test
 
